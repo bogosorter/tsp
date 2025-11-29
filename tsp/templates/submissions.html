@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Submissions</h1>
+  <ul>
+    {% for submission in submissions %}
+      <li>{{ submission.name }}: {{ submission.score }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
