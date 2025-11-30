@@ -13,6 +13,9 @@ def submit(request):
         name = request.POST.get('name')
         solution = request.POST.get('solution')
 
+        if not name or not solution:
+            return render(request, 'submit.html', {'error': 'Name and solution are required.', 'old': request.POST})
+
         try: score = evaluate_text(solution)
         except ValueError as e:
             return render(request, 'submit.html', {'error': str(e), 'old': request.POST})
