@@ -15,7 +15,7 @@ def submit(request):
 
         try: score = evaluate_text(solution)
         except ValueError as e:
-            return render(request, 'submit.html', {'error': str(e)})
+            return render(request, 'submit.html', {'error': str(e), 'old': request.POST})
 
         submission = Submission(name=name, score=score)
         submission.save()

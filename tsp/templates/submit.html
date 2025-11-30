@@ -5,9 +5,14 @@
 <div class="container d-flex flex-column align-items-center">
     <h1>Submit Solution</h1>
     <form method="POST" action="{% url 'submit' %}">
-        <input type="text" name="name" placeholder="Name">
-        <textarea name="solution" placeholder="Solution"></textarea>
+        <input type="text" name="name" placeholder="Name" value="{{ old.name|default:'' }}">
+        <input type="text" name="solution" placeholder="Solution">
         <button type="submit" class="btn btn-accent">Submit</button>
     </form>
+    {% if error %}
+    <div class="bg-danger-subtle">
+        {{ error }}
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
