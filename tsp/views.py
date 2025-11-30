@@ -4,7 +4,7 @@ from .models import Submission
 from .evaluator import evaluate_text
 
 def home(request):
-    submissions = Submission.objects.all()
+    submissions = Submission.objects.order_by('-score')
     return render(request, 'home.html', {'submissions': submissions})
 
 @csrf_exempt
