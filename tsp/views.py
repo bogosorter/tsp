@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Submission
 
-def submissions(request):
+def home(request):
     submissions = Submission.objects.all()
-    return render(request, 'submissions.html', {'submissions': submissions})
+    return render(request, 'home.html', {'submissions': submissions})
