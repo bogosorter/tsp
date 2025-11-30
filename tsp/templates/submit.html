@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="vertical-spacer-lg"></div>
+<div class="container d-flex flex-column align-items-center">
+    <h1>Submit Solution</h1>
+    <form method="POST" action="{% url 'submit' %}">
+        <input type="text" name="name" placeholder="Name">
+        <input type="number" name="score" placeholder="Score">
+        <button type="submit" class="btn btn-accent">Submit</button>
+    </form>
+</div>
+{% endblock %}
