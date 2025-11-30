@@ -6,7 +6,7 @@
     <h1>Submit Solution</h1>
     <form method="POST" action="{% url 'submit' %}">
         <input type="text" name="name" placeholder="Name">
-        <input type="number" name="score" placeholder="Score">
+        <textarea name="solution" placeholder="Solution"></textarea>
         <button type="submit" class="btn btn-accent">Submit</button>
     </form>
 </div>
