@@ -28,3 +28,12 @@ main {
 .table tbody tr:last-child td {
     border-bottom: none;
 }
+
+main a {
+    text-decoration: none;
+    color: var(--bs-accent);
+}
+
+main p {
+    text-align: justify;
+}
