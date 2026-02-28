@@ -22,17 +22,23 @@ async function displaySubmissions() {
 }
 
 async function submit() {
-    const username = document.querySelector('#username').value;
-    const solution = document.querySelector('#solution').value;
+    const username = document.querySelector('#username');
+    const solution = document.querySelector('#solution');
 
     const formData = new FormData();
-    formData.append('username', username);
-    formData.append('solution', solution);
+    formData.append('username', username.value);
+    formData.append('solution', solution.value);
 
-    await fetch('https://pages.up.pt/~up202303872/submit.php', {
+    const result = await fetch('https://pages.up.pt/~up202303872/submit.php', {
         method: 'POST',
         body: formData
     });
+
+    const data = await result.json();
+    if (data.success === true) {
+        username.value = '';
+        solution.value = '';
+    }
 }
 
 async function main() {
