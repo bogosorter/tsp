@@ -24,6 +24,7 @@ async function displaySubmissions() {
 async function submit() {
     const username = document.querySelector('#username');
     const solution = document.querySelector('#solution');
+    const error = document.querySelector('#error');
 
     const formData = new FormData();
     formData.append('username', username.value);
@@ -38,6 +39,9 @@ async function submit() {
     if (data.success === true) {
         username.value = '';
         solution.value = '';
+        error.textContent = '';
+    } else {
+        error.textContent = data.message;
     }
 }
 
